@@ -10,11 +10,15 @@
   {{/unless}}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700| Roboto+Slab:100,300,400,700 |Secular+One" rel="stylesheet">
+  <link rel="stylesheet" href="http://s.mlcdn.co/animate.css">
+  <link rel="stylesheet" href="app/normalize.css">
+  <link rel="stylesheet" href="app/main.css">
 </head>
 <body>
   <app-root>Loading...</app-root>
 
-  
+
 
     {{#each scripts.polyfills}}
     <script src="{{.}}"></script>
@@ -25,7 +29,7 @@
       }).catch(console.error.bind(console));
     </script>
 
-  
+
 
 </body>
 </html>
