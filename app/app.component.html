@@ -1,0 +1,30 @@
+<div>
+  <div class="card search">
+    <h1>
+      {{title}}
+    </h1>
+    <label>By Name <span *ngIf="query"> {{query | uppercase}}</span></label>
+    <input [(ngModel)]="query" type="text" placeholder="start typing...">
+    <label>By Year <span *ngIf="range > 1920">After {{range}}</span></label>
+    <input type="range" min="1900" max="2020" [(ngModel)]="range">
+  </div>
+</div>
+
+<div class="items-list" *ngIf="!itemSelected">
+  <ul class="animated fadeIn">
+    <li class="animated fadeIn"
+      *ngFor="let item of items | search:query | slider:range"
+      (click)="onSelect(item)"
+    >
+      <h2>{{item.name}}</h2>
+      <h3>{{item.start}}</h3>
+    </li>
+  </ul>
+</div>
+<div *ngIf="itemSelected" class="item-info">
+  <h2 class="close" (click)="itemSelected = false">&#x274C;</h2>
+  <h2>{{itemSelected.name}}</h2>
+  <h3>Correspondence started in {{itemSelected.start}} and lasted for {{itemSelected.years}} years</h3>
+  <p>{{itemSelected.content}}</p>
+  <h4>LIBRARY CODE: {{itemSelected.code}}</h4>
+</div>
